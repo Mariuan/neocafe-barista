@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { phoneValidate, birthdayValidate } from './validation';
+import { Redirect } from 'react-router-dom';
 import './CSS/Login.css';
 
 const Login = () => {
@@ -23,6 +24,10 @@ const Login = () => {
         e.preventDefault();
         setSend('sign-up');
     }
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        window.location.href = "/main";
+    }
     useEffect(()=>{
         const check_code = code1 + code2 + code3 + code4;
         if (document.getElementById('confirm-button') != null && document.getElementById('resend-button') != null){
@@ -43,10 +48,10 @@ const Login = () => {
                 if (lastName.length > 0) {
                     if (birthdayValidate(birthday)) {
                         document.getElementById('signup-button').classList.add('active');
-                        document.getElementById('signup-button').style.disabled = false;
+                        document.getElementById('signup-button').disabled = false;
                     } else {
                         document.getElementById('signup-button').classList.remove('active');
-                        document.getElementById('signup-button').style.disabled = true;
+                        document.getElementById('signup-button').disabled = true;
                     }
                 }
             }
@@ -184,7 +189,7 @@ const Login = () => {
             <div className="login-page">
                 <div className="login-window">
                     <h1 className="signup-title">Регистрация</h1>
-                    <form className="signup-form">
+                    <form className="signup-form" onSubmit={handleSignUp}>
                         <label htmlFor="">Имя*</label>
                         <br />
                         <input type="text" placeholder="Как вас зовут?" className="signup-input" onChange={(e)=>{
@@ -203,7 +208,7 @@ const Login = () => {
                             setBirthday(e.target.value);
                         }}/>
                         <br />
-                        <button id="signup-button" className="button signup-button" disabled>Далее</button>
+                        <button type="submit" id="signup-button" className="button signup-button" disabled>Далее</button>
                     </form>
                 </div>
             </div>
