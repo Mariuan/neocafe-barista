@@ -30,20 +30,91 @@ p {
 
 .phone-input {
     padding: 15px 80px;
-    margin-bottom: 32px;
+    margin-bottom: 12px;
     border: 1px solid #AFAFAF;
     box-sizing: border-box;
     border-radius: 8px;
     font-size: 20px;
     outline: none;
+    text-align: center;
 }
 
-button {
+.button {
     padding: 16px 150px;
+    margin: 20px;
     color: #C2C1C8;
     background: #4A4754;
     border-radius: 10px;
-    border: none;
+    border: 1px solid #4A4754;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 18px;
+}
+
+.confirm-title {
+    margin: 41px 0;
+}
+
+.confirm-subtitle {
+    margin: 0;
+}
+
+.input-title {
+    margin:0;
+    margin-top: 20px;
+}
+
+.input-field {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.code-input {
+    width: 20%;
+    margin: 20px 0px;
+    font-size: 32px;
+    padding: 0px 0px;
+    text-align: center;
+    border-radius: 5px;
+    background: #E2E1E5;
+    border: 1px solid #464646;
+    outline-color: #4A4754;
+}
+
+.resend {
+    background: #fff;
+    color: #464646;
+    padding: 16px 90px;
+}
+
+.active {
+    background: #7A68B7;
+    border: 1px solid #7A68B7;
+    color: #FFF;
+}
+
+.resend-active {
+    border: 1px solid #7A68B7;
+    color: #7A68B7;
+}
+
+.signup-title {
+    margin: 40px;
+}
+
+.signup-form label {
+    font-weight: 600;
+}
+
+.signup-input {
+    color: #464646;
+    border: 1px solid #D8D8D8;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 10px 50px;
+    margin: 10px;
+    text-align: center;
+    outline: none;
 }
