@@ -1,9 +1,9 @@
 import React from 'react'
-import './CSS/productItem.css';
+import './CSS/productItemDrink.css';
 import OptionIcon from './media/DotsThreeCircle.svg';
 import Expresso from './media/expresso.svg';
 
-const ProductItem = () => {
+const ProductItemDrink = () => {
     return (
         <div className="product-item-box">
             <div className="product-item">
@@ -14,7 +14,7 @@ const ProductItem = () => {
                     <div className="product-info">
                         <div className="product-title">
                             <h2>Экспрессо</h2>
-                            <img src={OptionIcon} alt="ThreeCircleDots" style={{cursor: "pointer", margin: "15px"}}/>
+                            <img src={OptionIcon} alt="ThreeCircleDots" style={{cursor: "pointer", margin: "15px"}} width={35}/>
                         </div>
                         <div className="empty-box"></div>
                     </div>
@@ -41,4 +41,4 @@ const ProductItem = () => {
     )
 }
 
-export default ProductItem;
+export default ProductItemDrink;

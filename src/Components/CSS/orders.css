@@ -1,0 +1,80 @@
+.orders {
+    color: #fff;
+}
+
+.orders_title h1 {
+    margin: 0;
+}
+
+.orders_title {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.orders_title h1 {
+    width: 70%;
+}
+
+.orders-place {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+
+.orders-place_inner {
+    padding: 5px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.orders-place_inner h2 {
+    font-size: 22px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.out {
+    margin-right: 100px;
+}
+
+.orders-status-line {
+    width: 80%;
+    margin: auto;
+    padding: 0 70px 0 0;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.orders-status-line p {
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.order-status {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    cursor: pointer;
+    padding: 0 30px;
+}
+
+.order-status p {
+    margin: 5px;
+}
+
+.status-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: 5px;
+    pointer-events: none;
+}
+
+.order-postcards {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}

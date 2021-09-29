@@ -1,3 +1,19 @@
+.menu {
+    height: 100%;
+    overflow: auto;
+}
+
+.menu_title {
+    width: 100%;
+    height: 100px;
+    background: #010C25;
+    color: #fff;
+}
+
+.menu_title h1 {
+    margin: 0;
+}
+
 .categories {
     width: 60%;
     margin: auto;
@@ -26,5 +42,5 @@
     width: 100%;
     height: 68vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }

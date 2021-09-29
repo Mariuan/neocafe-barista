@@ -4,6 +4,7 @@
     border: 1px solid #3D3E48;
     border-radius: 20px;
     color: #fff;
+    overflow-y: hidden;
 }
 
 .high-side {
@@ -27,9 +28,9 @@
 }
 
 .product-size {
-    padding: 15px;
+    padding: 10px;
     margin: 10px 0;
-    background: rgb(255, 255, 255, .15);
+    background: rgb(255, 255, 255, .1);
     border: 1px solid #3D3E48;
     border-radius: 8px;
 }

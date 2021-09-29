@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import ProductItem from './ProductItem';
+import ProductItemDrink from './ProductItemDrink';
+import ProductItemFood from './ProductItemFood';
 import './CSS/menu.css'
 
 const Menu = () => {
@@ -16,6 +17,9 @@ const Menu = () => {
 
     return (
         <div className="menu">
+            <div className="menu_title">
+                <h1>Меню</h1>
+            </div>
             <div className="categories">
                 <div className="category_item coffee picked" onClick={handleCategoryState}><h2>Кофе</h2></div>
                 <div className="category_item tea" onClick={handleCategoryState}><h2>Чай</h2></div>
@@ -23,14 +27,52 @@ const Menu = () => {
                 <div className="category_item bake" onClick={handleCategoryState}><h2>Выпечка</h2></div>
                 <div className="category_item dessert" onClick={handleCategoryState}><h2>Десерты</h2></div>
             </div>
-            <div className="category-type_items">
-                <ProductItem></ProductItem>
-                <ProductItem></ProductItem>
-                <ProductItem></ProductItem>
-                <ProductItem></ProductItem>
-                <ProductItem></ProductItem>
-                <ProductItem></ProductItem>
-            </div>
+            { category === 'coffee' && 
+            <>
+                <div className="category-type_items cofee">
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                </div>
+            </>}
+            {category === 'tea' &&
+            <>
+                <div className="category-type_items tea">
+                    <ProductItemDrink></ProductItemDrink>
+                </div>
+            </>}
+
+            {category === 'drinks' &&
+            <>
+                <div className="category-type_items drinks">
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                    <ProductItemDrink></ProductItemDrink>
+                </div>
+            </>}
+
+            {category === 'bake' &&
+            <>
+                <div className="category-type_items bake">
+                    <ProductItemFood></ProductItemFood>
+                    <ProductItemFood></ProductItemFood>
+                    <ProductItemFood></ProductItemFood>
+                </div>
+            </>}
+
+            {category === 'dessert' &&
+            <>
+                <div className="category-type_items dessert">
+                    <ProductItemFood></ProductItemFood>
+                    <ProductItemFood></ProductItemFood>
+                </div>
+            </>}
         </div>
     )
 }
