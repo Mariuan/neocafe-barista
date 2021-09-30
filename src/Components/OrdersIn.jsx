@@ -41,11 +41,38 @@ const OrdersIn = () => {
                 </div>
             </div>
             <div className="order-postcards">
-                <OrderPostcard status="new"></OrderPostcard>
-                <OrderPostcard status="inProcess"></OrderPostcard>
-                <OrderPostcard status="ready"></OrderPostcard>
-                <OrderPostcard status="cancelled"></OrderPostcard>
-                <OrderPostcard status="done"></OrderPostcard>
+                {orderStatus === 'all' &&
+                <>
+                    <OrderPostcard status="new"></OrderPostcard>
+                    <OrderPostcard status="new"></OrderPostcard>
+                    <OrderPostcard status="inProcess"></OrderPostcard>
+                    <OrderPostcard status="ready"></OrderPostcard>
+                    <OrderPostcard status="ready"></OrderPostcard>
+                    <OrderPostcard status="cancelled"></OrderPostcard>
+                    <OrderPostcard status="done"></OrderPostcard>
+                </>}
+                {orderStatus === 'new' &&
+                <>
+                    <OrderPostcard status="new"></OrderPostcard>
+                    <OrderPostcard status="new"></OrderPostcard>
+                </>}
+                {orderStatus === 'inProcess' &&
+                <>
+                    <OrderPostcard status="inProcess"></OrderPostcard>
+                </>}
+                {orderStatus === 'ready' &&
+                <>
+                    <OrderPostcard status="ready"></OrderPostcard>
+                    <OrderPostcard status="ready"></OrderPostcard>
+                </>}
+                {orderStatus === 'cancelled' &&
+                <>
+                    <OrderPostcard status="cancelled"></OrderPostcard>
+                </>}
+                {orderStatus === 'done' &&
+                <>
+                    <OrderPostcard status="done"></OrderPostcard>
+                </>}
             </div>
         </div>
     )

@@ -6,6 +6,7 @@ import profile from './media/profile-item.svg';
 import order from './media/order-item.svg'
 import Menu from './Menu';
 import Orders from './Orders';
+import Profile from './Profile';
 
 
 const Main = () => {
@@ -46,6 +47,8 @@ const Main = () => {
                 <Menu></Menu>}
                 {state === 'orders' && 
                 <Orders></Orders>}
+                {state === 'profile' &&
+                <Profile></Profile>}
             </div>
         </div>
     )
