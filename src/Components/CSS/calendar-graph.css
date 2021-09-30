@@ -1,0 +1,30 @@
+.calendar-graph {}
+
+.weekdays-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.days {
+    padding: 6px 10px;
+    margin: 13px;
+    background: #343545;
+    border-radius: 5px;
+}
+
+.dayShift {
+    color: #FF9C68;
+}
+
+.nightShift {
+    color: #7A68B7;
+}
+
+.weekend {
+    color: #4CC179;
+}

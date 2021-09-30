@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Calendar from './Calendar';
 import './CSS/profile.css';
 
 const Profile = () => {
@@ -45,14 +46,24 @@ const Profile = () => {
                         <div className="profile-schedule-side">
                             <div className="profile-schedule-box">
                                 <div className="profile-schedule-graph-calendar">
-                                    {console.log(days)}
-                                    {days.forEach((day)=>{
-                                        console.log(day);
-                                        <p>Hello</p>
-                                    })}
+                                    <Calendar></Calendar>
                                 </div>
                                 <div className="profile-schedule-time-managment">
-
+                                    <p className="time-managment-title">График работы</p>
+                                    <div className="time-managmant-decription">
+                                        <div className="schedule-line day-line">
+                                            <div className="time-color-circle day"></div>
+                                            <p>Дневная смена с 09:00 до 16:00</p>
+                                        </div>
+                                        <div className="schedule-line night-line">
+                                            <div className="time-color-circle night"></div>
+                                            <p>Дневная смена с 09:00 до 16:00</p>
+                                        </div>
+                                        <div className="schedule-line weekend-line">
+                                            <div className="time-color-circle weekendCircle"></div>
+                                            <p>Дневная смена с 09:00 до 16:00</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

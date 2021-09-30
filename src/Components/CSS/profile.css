@@ -65,3 +65,49 @@
     width: 50%;
     height: auto;
 }
+
+.profile-schedule-box {
+    background: #1E2432;
+    width: 460px;
+    border-radius: 20px;
+    margin: 50px 0;
+    padding: 15px;
+}
+
+.profile-schedule-time-managment {
+    text-align: start;
+}
+
+.profile-schedule-time-managment p {
+    margin: 0;
+}
+
+.time-managment-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #DEDEDF;
+}
+
+.schedule-line {
+    display: flex;
+    margin: 6px 0;
+}
+
+.time-color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin-right: 12px;
+}
+
+.day {
+    background: #FF9C68;
+}
+
+.night {
+    background: #7A68B7
+}
+
+.weekendCircle {
+    background: #4CC179;
+}
