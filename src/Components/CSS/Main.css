@@ -2,18 +2,22 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    overflow-y: hidden;
+    position: relative;
 }
 
 .sidebar {
     width: 8%;
     height: 100vh;
     background: #010C25;
+    overflow-y: auto;
 }
 
 .main-content {
     width: 92%;
     height: 100vh;
     background: #010B21;
+    position: relative;
 }
 
 .sidebar p {
@@ -23,6 +27,16 @@
 
 .sidebar_notification {
     margin: 17px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.sidebar_notification p {
+    pointer-events: none;
+}
+
+.notification-icon {
+    pointer-events: none;
 }
 
 .sidebar_nav {
@@ -46,4 +60,9 @@
 .picked {
     background: rgb(255, 255, 255, 0.23);
     border-radius: 10px;
+}
+
+.extra-sidebar {
+    position: relative;
+    width: 0%;
 }

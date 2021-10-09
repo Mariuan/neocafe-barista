@@ -13,12 +13,13 @@
 }
 
 .orders_title h1 {
-    width: 70%;
+    width: 30%;
+    margin-left: 35%;
 }
 
 .orders-place {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 30%;
 }
@@ -30,7 +31,7 @@
 }
 
 .orders-place_inner h2 {
-    font-size: 22px;
+    font-size: 18px;
     cursor: pointer;
     pointer-events: none;
 }

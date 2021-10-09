@@ -1,44 +1,54 @@
-import React from 'react'
-import './CSS/productItemDrink.css';
-import OptionIcon from './media/DotsThreeCircle.svg';
-import Expresso from './media/expresso.svg';
+import React, { useState } from "react";
+import "./CSS/productItemDrink.css";
+import Info_icon from "./media/Info.svg";
+import Kapuchino from "./media/kapuchino.svg";
+import Ellipse from "./media/menu-item-ellipse.svg";
+import MenuModalWindow from "./MenuModalWindow";
 
-const ProductItemDrink = () => {
-    return (
-        <div className="product-item-box">
-            <div className="product-item">
-                <div className="high-side">
-                    <div className="product-img">
-                        <img src={Expresso} alt="expresso-icon" width={120}/>
-                    </div>
-                    <div className="product-info">
-                        <div className="product-title">
-                            <h2>Экспрессо</h2>
-                            <img src={OptionIcon} alt="ThreeCircleDots" style={{cursor: "pointer", margin: "15px"}} width={35}/>
-                        </div>
-                        <div className="empty-box"></div>
-                    </div>
-                </div>
-                <div className="low-side">
-                    <div className="product-size s-box">
-                        <p>S</p>
-                        <p>(250 мл)</p>
-                        <p>65 с</p>
-                    </div>
-                    <div className="product-size m-box">
-                        <p>S</p>
-                        <p>(250 мл)</p>
-                        <p>65 с</p>
-                    </div>
-                    <div className="product-size l-box">
-                        <p>S</p>
-                        <p>(250 мл)</p>
-                        <p>65 с</p>
-                    </div>
-                </div>
-            </div>
+const ProductItemDrink = ({ data }) => {
+  const { id, title, price } = data;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div className="product-item-box">
+      {isModalOpen && (
+        <MenuModalWindow productId={id} closeModal={closeModal} />
+      )}
+      <div className="product-item" onClick={openModal}>
+        <img
+          src={Ellipse}
+          alt="menu-item-ellipse"
+          className="menu-item-ellipse"
+          width={120}
+        />
+        <div className="high-side">
+          <div className="item_title">
+            <p>{title}</p>
+          </div>
+          <div className="item_info-icon">
+            <img src={Info_icon} alt="info-icon" className="item_info-icon-checkng"/>
+          </div>
         </div>
-    )
-}
+        <div className="low-side">
+        <div className="item_image">
+            <img src={Kapuchino} alt="kapuchino" className="item_image" width={70}/>
+          </div>
+          <div className="item_price">
+            <p>{price} с</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default ProductItemDrink;

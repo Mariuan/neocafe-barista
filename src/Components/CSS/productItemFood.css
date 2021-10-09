@@ -1,47 +1,58 @@
+.product-item-box {
+    width: 230px;
+    display: inline-block;
+    margin: 12px;
+}
+
 .productItemFood {
-    background: rgb(255, 255, 255, 0.15);
+    background: #1E2432;
     color: #fff;
     margin: 2vh;
     border-radius: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
 .high-side {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 10px;
 }
 
-.product-item_name {
-    text-align: start;
-    margin: 0px 15px;
-    width: 100%;
+.item_title p {
+    margin: 14px;
 }
 
-.product-item_option {
-    width: 20%;
-}
-
-.product-item_option img {
+.item_info-icon {
+    margin: 10px;
     cursor: pointer;
-    margin: 0px 15px;
 }
 
 .low-side {
-    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 3;
 }
 
-.product-item_prise {
-    width: 100%;
-    text-align: start;
-    margin: 0px 15px;
-    display: flex;
-    align-items: center;
+.item_image {
+    margin: 10px;
 }
 
-.product-item_img {
-    width: 100%;
-    margin: 15px 15px;
+.item_price {
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.item_price p {
+    margin: 0 0 10px 0;
+}
+
+.menu-item-ellipse {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
 }

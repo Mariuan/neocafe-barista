@@ -1,42 +1,81 @@
+.product-item-box {
+    width: 230px;
+    display: inline-block;
+    margin: 12px;
+}
+
 .product-item {
     margin: 2vh;
-    background: rgb(255, 255, 255, 0.15);
+    background: #1E2432;
     border: 1px solid #3D3E48;
     border-radius: 20px;
     color: #fff;
     overflow-y: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
 .high-side {
     display: flex;
-}
-
-.product-info {
-    width: 100%;
-}
-
-.product-title {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
+}
+
+.item_title p {
+    margin: 14px;
+    font-size: 20px;
+}
+
+.item_info-icon {
+    margin: 10px;
+    cursor: pointer;
 }
 
 .low-side {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-.product-size {
-    padding: 10px;
-    margin: 10px 0;
-    background: rgb(255, 255, 255, .1);
-    border: 1px solid #3D3E48;
-    border-radius: 8px;
+.item_price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 30px 14px 0 10px;
+    cursor: pointer;
 }
 
-.low-side p {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 5px 0px;
+.item_price p {
+    font-size: 22px;
+    color: #968D8D;
+}
+
+.item_image {
+    margin: 20px 0 10px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu-item-ellipse {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.item_info-icon-checking {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    z-index: 20;
+}
+
+.item_image {
+    margin: 20px 0 0 0;
+    position: relative;
+}
+
+.item_image img {
+    position: absolute;
+    bottom: 10%;
+    left: 20px;
 }

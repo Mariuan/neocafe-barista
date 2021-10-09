@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import OrdersIn from './OrdersIn';
-import OrdersOut from './OrdersOut';
+import OrdersOut from './OrdersOut';    
 import './CSS/orders.css';
 
 

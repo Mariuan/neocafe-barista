@@ -1,6 +1,5 @@
 .menu {
     height: 100%;
-    overflow: auto;
 }
 
 .menu_title {
@@ -12,6 +11,11 @@
 
 .menu_title h1 {
     margin: 0;
+}
+
+.menu_content {
+    height: 100%;
+    overflow: auto;
 }
 
 .categories {
@@ -34,6 +38,11 @@
     border-radius: 30px;
 }
 
+.category_item-picked {
+    background: rgb(255, 255, 255, 0.23);
+    border-radius: 10px;
+}
+
 .category_item h2 {
     pointer-events: none;
 }
@@ -41,6 +50,5 @@
 .category-type_items {
     width: 100%;
     height: 68vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: start;
 }

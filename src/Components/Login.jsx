@@ -10,19 +10,40 @@ const Login = () => {
     const [ code2, setCode2 ] = useState('');
     const [ code3, setCode3 ] = useState('');
     const [ code4, setCode4 ] = useState('');
+    const [ correcCode, setCorrectCode ] = useState(true);
 
     const [ timer, setTimer ] = useState(30);
 
     const [ name, setName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const [ birthday, setBirthday] = useState('');
+    
 
-    const handleNext = () => {
+    const sendSMS = async (requestPhone) => {
+        const response = await fetch('https://neocafe6.herokuapp.com/sendSms', {
+            method: 'POST',
+            body: {
+                phone: requestPhone
+            }
+        });
+        // const responseJson = await response.json();
+        console.log(response);
+        return response;
+    }
+
+    const handleNext = (e) => {
         setSend('sent');
     }
     const handleConfirm = (e) => {
         e.preventDefault();
-        setSend('sign-up');
+        const check_code = code1 + code2 + code3 + code4;
+        if (check_code === '1111') {
+            setSend('sign-up');
+        }
+        else {
+            setCorrectCode(false);
+        }
+        
     }
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -96,87 +117,173 @@ const Login = () => {
                 <div className="login-window">
                     <h1 className="confirm-title">СМС код</h1>
                     <p className="confirm-subtitle">Код был отправлен на номер {phoneNumber}</p>
-                    <p className="input-title">Введите код</p>
                     <form onSubmit={handleConfirm}>
-                        <div className="input-field">
-                        <input type="tel" className="code-input" onChange={(e)=>{
-                            if (e.target.value.length == 1) {
-                                setCode1(e.target.value);
-                                e.target.nextSibling.focus();
-                            } else if (e.target.value.length === 0) {
-                                setCode1(e.target.value);
-                            } else {
-                                e.target.nextSibling.value = e.target.value[1];
-                                setCode2(e.target.value[1]);
-                                e.target.nextSibling.nextSibling.focus();
-                                e.target.value = e.target.value[0];
-                            }
-                        }}/>
-                        <input type="tel" id="code-input" className="code-input" onChange={(e)=>{
-                            if (e.target.value.length === 1) {
-                                setCode2(e.target.value);
-                                e.target.nextSibling.focus();
-                            } else if (e.target.value.length === 0) {
-                                setCode2(e.target.value);
-                            } else {
-                                e.target.nextSibling.value = e.target.value[1];
-                                setCode3(e.target.value[1]);
-                                e.target.nextSibling.nextSibling.focus();
-                                e.target.value = e.target.value[0];
-                            }
-                        }} onFocus={(e)=>{
-                            e.target.addEventListener('keydown', (event)=>{
-                                if (e.target.value.length == 0) {
-                                    if (event.code == 'Backspace') {
-                                        e.target.previousSibling.focus();
-                                        event.preventDefault();
+                            { correcCode &&
+                            <>
+                            <p className="input-title">Введите код</p>
+                            <div className="input-field">
+                                <input type="tel" className="code-input" onChange={(e)=>{
+                                    if (e.target.value.length == 1) {
+                                        setCode1(e.target.value);
+                                        e.target.nextSibling.focus();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode1(e.target.value);
+                                    } else {
+                                        e.target.nextSibling.value = e.target.value[1];
+                                        setCode2(e.target.value[1]);
+                                        e.target.nextSibling.nextSibling.focus();
+                                        e.target.value = e.target.value[0];
                                     }
-                                    
-                                }
-                            })
-                        }}/>
-                        <input type="tel" id="code-input" className="code-input" onChange={(e)=>{
-                            if (e.target.value.length === 1) {
-                                setCode3(e.target.value);
-                                e.target.nextSibling.focus();
-                            } else if (e.target.value.length === 0) {
-                                setCode3(e.target.value);
-                            } else {
-                                e.target.nextSibling.value = e.target.value[1];
-                                setCode4(e.target.value[1]);
-                                e.target.blur();
-                                e.target.value = e.target.value[0];
-                            }
-                        }} onFocus={(e)=>{
-                            e.target.addEventListener('keydown', (event)=>{
-                                if (e.target.value.length == 0) {
-                                    if (event.code == 'Backspace') {
-                                        e.target.previousSibling.focus();
-                                        event.preventDefault();
+                                }}/>
+                                <input type="tel" id="code-input" className="code-input" onChange={(e)=>{
+                                    if (e.target.value.length === 1) {
+                                        setCode2(e.target.value);
+                                        e.target.nextSibling.focus();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode2(e.target.value);
+                                    } else {
+                                        e.target.nextSibling.value = e.target.value[1];
+                                        setCode3(e.target.value[1]);
+                                        e.target.nextSibling.nextSibling.focus();
+                                        e.target.value = e.target.value[0];
                                     }
-                                    
-                                }
-                            })
-                        }}/>
-                        <input type="tel" id="code-input" className="code-input" maxLength={1} onChange={(e)=>{
-                            if (e.target.value.length === 1) {
-                                setCode4(e.target.value);
-                                e.target.blur();
-                            } else if (e.target.value.length === 0) {
-                                setCode4(e.target.value);
-                            }
-                        }} onFocus={(e)=>{
-                            e.target.addEventListener('keydown', (event)=>{
-                                if (e.target.value.length == 0) {
-                                    if (event.code == 'Backspace') {
-                                        e.target.previousSibling.focus();
-                                        event.preventDefault();
+                                }} onFocus={(e)=>{
+                                    e.target.addEventListener('keydown', (event)=>{
+                                        if (e.target.value.length == 0) {
+                                            if (event.code == 'Backspace') {
+                                                e.target.previousSibling.focus();
+                                                event.preventDefault();
+                                            }
+                                            
+                                        }
+                                    })
+                                }}/>
+                                <input type="tel" id="code-input" className="code-input" onChange={(e)=>{
+                                    if (e.target.value.length === 1) {
+                                        setCode3(e.target.value);
+                                        e.target.nextSibling.focus();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode3(e.target.value);
+                                    } else {
+                                        e.target.nextSibling.value = e.target.value[1];
+                                        setCode4(e.target.value[1]);
+                                        e.target.blur();
+                                        e.target.value = e.target.value[0];
                                     }
-                                    
-                                }
-                            })
-                        }}/>
-                        </div>
+                                }} onFocus={(e)=>{
+                                    e.target.addEventListener('keydown', (event)=>{
+                                        if (e.target.value.length == 0) {
+                                            if (event.code == 'Backspace') {
+                                                e.target.previousSibling.focus();
+                                                event.preventDefault();
+                                            }
+                                            
+                                        }
+                                    })
+                                }}/>
+                                <input type="tel" id="code-input" className="code-input" maxLength={1} onChange={(e)=>{
+                                    if (e.target.value.length === 1) {
+                                        setCode4(e.target.value);
+                                        e.target.blur();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode4(e.target.value);
+                                    }
+                                }} onFocus={(e)=>{
+                                    e.target.addEventListener('keydown', (event)=>{
+                                        if (e.target.value.length == 0) {
+                                            if (event.code == 'Backspace') {
+                                                e.target.previousSibling.focus();
+                                                event.preventDefault();
+                                            }
+                                            
+                                        }
+                                    })
+                                }}/>
+                                </div>
+                            </>}
+                            { !correcCode &&
+                            <>
+                            <label style={{color: '#D70000'}} m>Неверный код*</label>
+                            <div className="input-field">
+                                <input type="tel" className="code-input" style={{border: '1px solid #D70000'}} onChange={(e)=>{
+                                    if (e.target.value.length == 1) {
+                                        setCode1(e.target.value);
+                                        e.target.nextSibling.focus();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode1(e.target.value);
+                                    } else {
+                                        e.target.nextSibling.value = e.target.value[1];
+                                        setCode2(e.target.value[1]);
+                                        e.target.nextSibling.nextSibling.focus();
+                                        e.target.value = e.target.value[0];
+                                    }
+                                }}/>
+                                <input type="tel" id="code-input" className="code-input" style={{border: '1px solid #D70000'}} onChange={(e)=>{
+                                    if (e.target.value.length === 1) {
+                                        setCode2(e.target.value);
+                                        e.target.nextSibling.focus();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode2(e.target.value);
+                                    } else {
+                                        e.target.nextSibling.value = e.target.value[1];
+                                        setCode3(e.target.value[1]);
+                                        e.target.nextSibling.nextSibling.focus();
+                                        e.target.value = e.target.value[0];
+                                    }
+                                }} onFocus={(e)=>{
+                                    e.target.addEventListener('keydown', (event)=>{
+                                        if (e.target.value.length == 0) {
+                                            if (event.code == 'Backspace') {
+                                                e.target.previousSibling.focus();
+                                                event.preventDefault();
+                                            }
+                                            
+                                        }
+                                    })
+                                }}/>
+                                <input type="tel" id="code-input" className="code-input" style={{border: '1px solid #D70000'}} onChange={(e)=>{
+                                    if (e.target.value.length === 1) {
+                                        setCode3(e.target.value);
+                                        e.target.nextSibling.focus();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode3(e.target.value);
+                                    } else {
+                                        e.target.nextSibling.value = e.target.value[1];
+                                        setCode4(e.target.value[1]);
+                                        e.target.blur();
+                                        e.target.value = e.target.value[0];
+                                    }
+                                }} onFocus={(e)=>{
+                                    e.target.addEventListener('keydown', (event)=>{
+                                        if (e.target.value.length == 0) {
+                                            if (event.code == 'Backspace') {
+                                                e.target.previousSibling.focus();
+                                                event.preventDefault();
+                                            }
+                                            
+                                        }
+                                    })
+                                }}/>
+                                <input type="tel" id="code-input" className="code-input" style={{border: '1px solid #D70000'}} maxLength={1} onChange={(e)=>{
+                                    if (e.target.value.length === 1) {
+                                        setCode4(e.target.value);
+                                        e.target.blur();
+                                    } else if (e.target.value.length === 0) {
+                                        setCode4(e.target.value);
+                                    }
+                                }} onFocus={(e)=>{
+                                    e.target.addEventListener('keydown', (event)=>{
+                                        if (e.target.value.length == 0) {
+                                            if (event.code == 'Backspace') {
+                                                e.target.previousSibling.focus();
+                                                event.preventDefault();
+                                            }
+                                            
+                                        }
+                                    })
+                                }}/>
+                            </div>
+                            </>}
                         <button type="submit" id="confirm-button" disabled className="button confirm">Подтверидить</button>
                         <button type="button" id="resend-button" disabled className="button resend">Отправить повторно ({timer} сек)</button>
                     </form>

@@ -1,0 +1,139 @@
+.modalWindow_back {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modalWindow_front {
+    background-color: #343545;
+    width: 400px;
+    height: 420px;
+    border-radius: 8px;
+    padding: 16px;
+    color: #E9E9E9;
+    position: relative;
+}
+
+.modalWindow_header {
+    text-align: end;
+}
+
+.modalWindow_header img {
+    cursor: pointer;
+}
+
+.modalWindow_title {
+    text-align: start;
+}
+
+.modalWindow_title p {
+    margin: 10px 30px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+form {
+    text-align: start;
+    margin-left: 30px;
+}
+
+.modalWindow_form-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 30px 0;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input-box input {
+    transform: scale(1.5);
+    margin: 0 10px;
+    background: none;
+    border: 1px solid #343545;
+}
+
+.modalWindow_input-name {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.modalWindow_input-price {
+    margin-left: 10px;
+    color: #4CC179;
+}
+
+form p {
+    margin: 0;
+}
+
+.modalWindow_finalBox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20%;
+    font-weight: 700;
+}
+
+.final_title,
+.final_price {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modalWindow_submitButtons {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.modalWindow_finalQuantity {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 10%;
+}
+
+.quantity-state-control-button {
+    width: 30%;
+    padding: 15px 10px;
+    background: #464B56;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.quantity-state {
+    width: 20%;
+    text-align: center;
+    background: #464B56;
+    padding: 16.5px 10px;
+}
+
+.minus {
+    border-radius: 8px 0 0 8px;
+}
+
+.plus {
+    border-radius: 0 8px 8px 0;
+}
+
+.modalWindow_add-button {
+    background: #4CC179;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 30px;
+    color: #fff;
+    cursor: pointer;
+}
